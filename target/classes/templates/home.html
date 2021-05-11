@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Covid-19 Tracker</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+
+<h1>Coronavirus Tracker Application</h1>
+<p>This application lists the current number of cases reported across the globe</p>
+<!--<p th:text="${testName}"></p>-->
+<!--<div class="jumbotron">-->
+<!--    <h1 class="display-4" th:text="${totalCases}">Covid-19 Tracker</h1>-->
+<!--    <p class="lead" >Total cases reported as of today</p>-->
+<!--</div>-->
+
+
+<div class="jumbotron">
+    <h1 class="display-4" th:text="${totalCases}"></h1>
+    <p class="lead">Total cases reported as of today</p>
+    <hr class="my-4">
+    <p>Total new cases: </p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </p>
+</div>
+
+
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Contry</th>
+            <th scope="col">State</th>
+            <th scope="col">LastTotalCases</th>
+            <th scope="col">NewCases</th>
+        </tr>
+        </thead>
+
+        <tr th:each="locationStat : ${locationStats}">
+            <td th:text="${locationStat.country}"></td>
+            <td th:text="${locationStat.state}"></td>
+            <td th:text="${locationStat.latestTotalCases}">0</td>
+            <td th:text="${locationStat.newUpdate}">0</td>
+        </tr>
+    </table>
+</div>
+
+
+</body>
+
+</html>
